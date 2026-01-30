@@ -1,0 +1,174 @@
+.stage {
+  width: min(980px, 92vw);
+  margin: 120px auto 0;
+  font-family: "ZCOOL XiaoWei", "Noto Serif SC", "Songti SC", serif;
+}
+
+.searchRow {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: linear-gradient(135deg, #bfe7ff, #c8ecff);
+  padding: 20px 26px;
+  border-radius: 999px;
+  box-shadow:
+    0 10px 24px rgba(83, 125, 160, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  min-width: min(520px, 86vw);
+}
+
+.searchIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 4px solid #3a79a8;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.searchIcon svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: #3a79a8;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+}
+
+.input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 20px;
+  color: #2c6e99;
+  letter-spacing: 1px;
+}
+
+.input::placeholder {
+  color: #2c6e99;
+  opacity: 0.9;
+}
+
+.moreButton {
+  width: 42px;
+  height: 42px;
+  border: none;
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.moreButton span {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: #2c6e99;
+  display: inline-block;
+}
+
+.panel {
+  background: linear-gradient(160deg, #eaf5ff, #d8ecff);
+  border-radius: 28px;
+  padding: 18px 22px;
+  box-shadow: 0 12px 26px rgba(82, 118, 150, 0.25);
+  display: grid;
+  gap: 14px;
+  min-width: 160px;
+  animation: slideIn 220ms ease;
+  position: relative;
+}
+
+.panelItem {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  align-items: center;
+  column-gap: 12px;
+  color: #1e2a35;
+  font-size: 16px;
+}
+
+.snowflake {
+  width: 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #3c8bd6;
+}
+
+.snowflake svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.label {
+  letter-spacing: 1px;
+}
+
+.closeButton {
+  position: absolute;
+  top: -10px;
+  right: -6px;
+  width: 26px;
+  height: 26px;
+  border: none;
+  border-radius: 999px;
+  background: #e9f2ff;
+  color: #3a79a8;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(82, 118, 150, 0.2);
+}
+
+.closeButton:hover {
+  background: #ffffff;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 700px) {
+  .stage {
+    margin-top: 80px;
+  }
+
+  .searchRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .searchBar {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .panel {
+    width: 100%;
+  }
+}

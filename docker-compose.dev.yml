@@ -1,0 +1,16 @@
+services:
+  next-dev:
+    image: node:20-alpine
+    working_dir: /app
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/app
+      - /app/node_modules
+      - /app/.next
+    environment:
+      # Windows / Docker Desktop 下文件监听常不稳定，用轮询更稳
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
+      - NEXT_TELEMETRY_DISABLED=1
+    command: sh -c "npm install && npm run dev -- -H 0.0.0.0 -p 3000"
