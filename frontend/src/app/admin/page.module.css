@@ -1,0 +1,148 @@
+:root {
+  color-scheme: light;
+}
+
+.page {
+  min-height: 100vh;
+  padding: 48px 24px 72px;
+  background: radial-gradient(circle at top, #f3efe8, #e6e1da 45%, #d9d2c8);
+  color: #1b1b1b;
+  font-family: "General Sans", "Noto Sans SC", sans-serif;
+}
+
+.card {
+  max-width: 960px;
+  margin: 0 auto 32px;
+  padding: 28px 32px;
+  background: #fffdf9;
+  border: 1px solid #c9c1b6;
+  border-radius: 18px;
+  box-shadow: 0 24px 60px rgba(37, 31, 25, 0.08);
+}
+
+.title {
+  font-size: 32px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+}
+
+.subtitle {
+  margin: 0;
+  color: #5b5148;
+}
+
+.grid {
+  max-width: 960px;
+  margin: 0 auto;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.panel {
+  background: #fffdf9;
+  border: 1px solid #c9c1b6;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 18px 40px rgba(37, 31, 25, 0.08);
+}
+
+.panelTitle {
+  margin: 0 0 16px;
+  font-size: 20px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+  color: #3c332a;
+  font-size: 14px;
+}
+
+.input,
+.textarea {
+  border-radius: 10px;
+  border: 1px solid #b8b0a6;
+  padding: 10px 12px;
+  font-size: 14px;
+  background: #fbfaf7;
+  color: #1b1b1b;
+}
+
+.textarea {
+  min-height: 160px;
+  resize: vertical;
+}
+
+.fileList {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 16px;
+}
+
+.fileItem {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px dashed #b8b0a6;
+  background: #f4f1ea;
+  font-size: 13px;
+  color: #3c332a;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+}
+
+.primary {
+  border: none;
+  background: #1f3b36;
+  color: #f4f0ea;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(31, 59, 54, 0.25);
+}
+
+.ghost {
+  border: 1px solid #8c857b;
+  background: transparent;
+  color: #433b33;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.status {
+  max-width: 960px;
+  margin: 24px auto 0;
+  font-size: 14px;
+  color: #2d5d51;
+}
+
+.hint {
+  max-width: 960px;
+  margin: 8px auto 0;
+  font-size: 12px;
+  color: #6b6258;
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 32px 16px 48px;
+  }
+
+  .card {
+    padding: 24px;
+  }
+}
