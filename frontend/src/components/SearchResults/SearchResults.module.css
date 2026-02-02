@@ -1,45 +1,63 @@
-.stage {
-  width: min(980px, 92vw);
-  margin: 120px auto 0;
-  font-family: "ZCOOL XiaoWei", "Noto Serif SC", "Songti SC", serif;
+﻿.pageShell {
+  width: min(1100px, 94vw);
+  margin: 0 auto;
+  display: grid;
+  gap: 20px;
 }
 
-.searchRow {
+.topPanel {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 24px;
+  padding: 16px 24px;
+  border-radius: 0;
+  background: linear-gradient(135deg, #cfe9fb, #bcdcf6);
+  box-shadow: 0 12px 24px rgba(84, 129, 168, 0.18);
+}
+
+.brand {
+  margin: 0;
+  font-size: 26px;
+  color: #1d4f73;
+  letter-spacing: 4px;
+  font-weight: 600;
+}
+
+.searchBarWrap {
+  position: relative;
 }
 
 .searchBar {
   display: flex;
   align-items: center;
-  gap: 16px;
-  background: linear-gradient(135deg, #bfe7ff, #c8ecff);
-  padding: 20px 26px;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.65);
+  padding: 10px 16px;
   border-radius: 999px;
-  box-shadow:
-    0 10px 24px rgba(83, 125, 160, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 0.7);
-  min-width: min(520px, 86vw);
+  min-width: min(360px, 70vw);
 }
 
 .searchIcon {
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  border: 4px solid #3a79a8;
+  border: 3px solid #3a79a8;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.6);
 }
 
 .searchIcon svg {
-  width: 18px;
-  height: 18px;
+  width: 14px;
+  height: 14px;
   fill: none;
   stroke: #3a79a8;
-  stroke-width: 2.6;
+  stroke-width: 2.4;
   stroke-linecap: round;
 }
 
@@ -48,9 +66,9 @@
   border: none;
   outline: none;
   background: transparent;
-  font-size: 20px;
+  font-size: 16px;
   color: #2c6e99;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
 }
 
 .input::placeholder {
@@ -59,36 +77,39 @@
 }
 
 .moreButton {
-  width: 42px;
-  height: 42px;
+  width: 34px;
+  height: 34px;
   border: none;
   background: transparent;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 4px;
+  gap: 3px;
   cursor: pointer;
   padding: 0;
 }
 
 .moreButton span {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
   border-radius: 999px;
   background: #2c6e99;
   display: inline-block;
 }
 
 .panel {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 10px);
   background: linear-gradient(160deg, #eaf5ff, #d8ecff);
-  border-radius: 28px;
+  border-radius: 18px;
   padding: 18px 22px;
   box-shadow: 0 12px 26px rgba(82, 118, 150, 0.25);
   display: grid;
   gap: 14px;
-  min-width: 160px;
+  min-width: 180px;
   animation: slideIn 220ms ease;
-  position: relative;
+  z-index: 10;
 }
 
 .panelItem {
@@ -162,9 +183,9 @@
 }
 
 .resultHeader {
-  margin: 32px 0 0;
+  margin: 8px 0 0;
   color: #2a5170;
-  font-size: 18px;
+  font-size: 16px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -200,17 +221,17 @@
 }
 
 .results {
-  margin-top: 26px;
+  margin-top: 6px;
   display: grid;
-  gap: 20px;
+  gap: 18px;
 }
 
 .resultCard {
   display: grid;
   grid-template-columns: 52px 1fr;
   gap: 18px;
-  padding: 22px 26px;
-  border-radius: 20px;
+  padding: 20px 24px;
+  border-radius: 18px;
   background: linear-gradient(135deg, #e0f4ff, #eaf6ff);
   box-shadow: 0 12px 24px rgba(76, 120, 155, 0.2);
   align-items: center;
@@ -261,11 +282,6 @@
   background: rgba(62, 116, 160, 0.12);
 }
 
-.snippets {
-  display: grid;
-  gap: 8px;
-}
-
 .resultSnippet {
   margin: 0;
   color: #385a73;
@@ -291,23 +307,48 @@
   margin: 8px 0 0;
 }
 
+.pagination {
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.pageButton {
+  border: none;
+  background: #3a79a8;
+  color: #f5fbff;
+  padding: 8px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.pageButton:disabled {
+  background: #9db7cb;
+  cursor: not-allowed;
+}
+
+.pageInfo {
+  color: #4b6378;
+  font-size: 14px;
+}
+
 @keyframes slideIn {
   from {
     opacity: 0;
-    transform: translateX(-8px);
+    transform: translateY(-6px);
   }
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
   }
 }
 
-@media (max-width: 700px) {
-  .stage {
-    margin-top: 80px;
-  }
-
-  .searchRow {
+@media (max-width: 900px) {
+  .topPanel {
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
     flex-direction: column;
     align-items: flex-start;
   }
@@ -316,9 +357,12 @@
     width: 100%;
     min-width: 0;
   }
+}
 
+@media (max-width: 700px) {
   .panel {
-    width: 100%;
+    left: 0;
+    right: 0;
   }
 
   .resultCard {

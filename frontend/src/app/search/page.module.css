@@ -1,7 +1,5 @@
 ﻿.page {
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background: radial-gradient(circle at top left, #f3fbff 0%, #ffffff 55%, #eef6ff 100%);
+  padding: 0 24px 80px;
 }
