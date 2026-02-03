@@ -1,0 +1,141 @@
+﻿.page {
+  min-height: 100vh;
+  background: radial-gradient(circle at top left, #f3fbff 0%, #ffffff 55%, #eef6ff 100%);
+  padding: 0 24px 80px;
+}
+
+.topPanel {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 16px 24px;
+  background: linear-gradient(135deg, #cfe9fb, #bcdcf6);
+  box-shadow: 0 12px 24px rgba(84, 129, 168, 0.18);
+}
+
+.brand {
+  margin: 0;
+  font-size: 26px;
+  color: #1d4f73;
+  letter-spacing: 4px;
+  font-weight: 600;
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.65);
+  padding: 10px 16px;
+  border-radius: 999px;
+  min-width: min(320px, 70vw);
+}
+
+.searchIcon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 3px solid #3a79a8;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.searchIcon svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: #3a79a8;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+}
+
+.input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 16px;
+  color: #2c6e99;
+  letter-spacing: 0.5px;
+}
+
+.input::placeholder {
+  color: #2c6e99;
+  opacity: 0.9;
+}
+
+.contentWrap {
+  width: min(980px, 92vw);
+  margin: 24px auto 0;
+  display: grid;
+  gap: 18px;
+}
+
+.back {
+  color: #2a5c83;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.back:hover {
+  text-decoration: underline;
+}
+
+.storyCard {
+  background: linear-gradient(135deg, #e0f4ff, #eaf6ff);
+  border-radius: 24px;
+  padding: 32px 36px;
+  box-shadow: 0 18px 40px rgba(76, 120, 155, 0.25);
+}
+
+.storyTitle {
+  margin: 0 0 16px;
+  font-size: 24px;
+  color: #1f5a83;
+}
+
+.storyText {
+  display: grid;
+  gap: 10px;
+  color: #385a73;
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+.storyText p {
+  margin: 0;
+}
+
+.status {
+  color: #6a7f91;
+  font-size: 14px;
+}
+
+.error {
+  color: #b3443a;
+  font-size: 14px;
+}
+
+@media (max-width: 900px) {
+  .topPanel {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .searchBar {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .storyCard {
+    padding: 24px;
+  }
+}

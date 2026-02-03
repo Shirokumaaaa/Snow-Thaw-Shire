@@ -1,5 +1,6 @@
 ﻿"use client";
 
+import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import styles from "./SearchResults.module.css";
 
@@ -225,7 +226,11 @@ export default function SearchResults({ initialQuery = "", initialTypes = [] }: 
             </div>
             <div className={styles.resultBody}>
               <div className={styles.resultTitleRow}>
-                <h3 className={styles.resultTitle}>{item.name}</h3>
+                <h3 className={styles.resultTitle}>
+                  <Link className={styles.resultLink} href={`/story/${item.id}`}>
+                    {item.name}
+                  </Link>
+                </h3>
                 {item.type ? <span className={styles.resultType}>{item.type}</span> : null}
               </div>
               <p className={styles.resultSnippet}>{renderHighlighted(item.snippet, query)}</p>

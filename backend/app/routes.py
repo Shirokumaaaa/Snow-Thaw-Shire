@@ -2,6 +2,7 @@ import re
 from pathlib import Path
 from datetime import datetime, timezone
 
+from bson import ObjectId
 from fastapi import APIRouter, Depends, File, HTTPException, UploadFile, status
 from fastapi.security import OAuth2PasswordRequestForm
 from motor.motor_asyncio import AsyncIOMotorDatabase
@@ -103,6 +104,29 @@ async def search_articles(
             )
 
     return SearchResponse(query=query, total=len(results), results=results)
+
+
+@router.get("/articles/{article_id}", response_model=CardOut)
+async def get_article(
+    article_id: str,
+    db: AsyncIOMotorDatabase = Depends(get_db),
+) -> CardOut:
+    try:
+        object_id = ObjectId(article_id)
+    except Exception as exc:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Invalid id") from exc
+
+    doc = await db.cards.find_one({"_id": object_id})
+    if not doc:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Not found")
+
+    return CardOut(
+        id=str(doc["_id"]),
+        type=doc.get("type", ""),
+        name=doc.get("name", ""),
+        story=doc.get("story", ""),
+        created_at=doc.get("created_at", datetime.now(timezone.utc)),
+    )
 
 
 def _extract_snippets(text: str, regex: re.Pattern, window: int, max_snippets: int) -> list[str]:
